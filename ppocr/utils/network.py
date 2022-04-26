@@ -48,10 +48,11 @@ def maybe_download(model_storage_directory, url):
             os.path.join(model_storage_directory, 'inference.pdiparams')
     ) or not os.path.exists(
             os.path.join(model_storage_directory, 'inference.pdmodel')):
+        print("Enters here")
         assert url.endswith('.tar'), 'Only supports tar compressed package'
         tmp_path = os.path.join(model_storage_directory, url.split('/')[-1])
         print('download {} to {}'.format(url, tmp_path))
-        os.makedirs(model_storage_directory, exist_ok=True)
+#         os.makedirs(model_storage_directory, exist_ok=True)
         download_with_progressbar(url, tmp_path)
         with tarfile.open(tmp_path, 'r') as tarObj:
             for member in tarObj.getmembers():
