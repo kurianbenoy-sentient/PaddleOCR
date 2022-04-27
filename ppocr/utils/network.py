@@ -53,21 +53,21 @@ def maybe_download(model_storage_directory, url):
         tmp_path = os.path.join(model_storage_directory, url.split('/')[-1])
         print('download {} to {}'.format(url, tmp_path))
 #         os.makedirs(model_storage_directory, exist_ok=True)
-        download_with_progressbar(url, tmp_path)
-        with tarfile.open(tmp_path, 'r') as tarObj:
-            for member in tarObj.getmembers():
-                filename = None
-                for tar_file_name in tar_file_name_list:
-                    if tar_file_name in member.name:
-                        filename = tar_file_name
-                if filename is None:
-                    continue
-                file = tarObj.extractfile(member)
-                with open(
-                        os.path.join(model_storage_directory, filename),
-                        'wb') as f:
-                    f.write(file.read())
-        os.remove(tmp_path)
+#         download_with_progressbar(url, tmp_path)
+#         with tarfile.open(tmp_path, 'r') as tarObj:
+#             for member in tarObj.getmembers():
+#                 filename = None
+#                 for tar_file_name in tar_file_name_list:
+#                     if tar_file_name in member.name:
+#                         filename = tar_file_name
+#                 if filename is None:
+#                     continue
+#                 file = tarObj.extractfile(member)
+#                 with open(
+#                         os.path.join(model_storage_directory, filename),
+#                         'wb') as f:
+#                     f.write(file.read())
+#         os.remove(tmp_path)
 
 
 def is_link(s):
