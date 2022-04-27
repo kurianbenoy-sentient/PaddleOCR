@@ -323,6 +323,10 @@ class PaddleOCR(predict_system.TextSystem):
             os.path.join(BASE_DIR, VERSION, 'ocr', 'cls'),
             cls_model_config['url'])
         # download model
+        print(params.det_model_dir)
+        print(params.rec_model_dir)
+        
+        print("Entering maybe_download block")
         maybe_download(params.det_model_dir, det_url)
         maybe_download(params.rec_model_dir, rec_url)
         maybe_download(params.cls_model_dir, cls_url)
@@ -425,6 +429,7 @@ class PPStructure(OCRSystem):
             os.path.join(BASE_DIR, VERSION, 'ocr', 'table'),
             table_model_config['url'])
         # download model
+        print("Entering PPStructure class")
         maybe_download(params.det_model_dir, det_url)
         maybe_download(params.rec_model_dir, rec_url)
         maybe_download(params.table_model_dir, table_url)
